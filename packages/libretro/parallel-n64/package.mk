@@ -45,8 +45,14 @@ make_target() {
     DYNAREC=x86
   fi
 
-  if [ "$PROJECT" == "RPi" -o "$PROJECT" == "Gamegirl" -o "$PROJECT" == "Slice" ]; then
+  if [ "$BOARD" == "RPi4" ]; then
+    LDFLAGS="$LDFLAGS -lpthread"
+    make platform=armv-neon WITH_DYNAREC=arm HAVE_PARALLEL=1
+  elif [ "$PROJECT" == "RPi" -o "$PROJECT" == "Gamegirl" -o "$PROJECT" == "Slice" ]; then
     make platform=rpi
+  elif [[ "$PROJECT" == "Generic_VK_nvidia" ]]; then
+    LDFLAGS="$LDFLAGS -lpthread"
+    make WITH_DYNAREC=$DYNAREC HAVE_PARALLEL=1 HAVE_OPENGL=0
   elif [[ "$TARGET_FPU" =~ "neon" ]]; then
     CFLAGS="$CFLAGS -DGL_BGRA_EXT=0x80E1" # Fix build for platforms where GL_BGRA_EXT is not defined
     make platform=armv-gles-neon

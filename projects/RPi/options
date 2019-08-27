@@ -131,7 +131,7 @@
   # for a list of additinoal drivers see packages/linux-drivers
   # Space separated list is supported,
   # e.g. ADDITIONAL_DRIVERS="DRIVER1 DRIVER2"
-    ADDITIONAL_DRIVERS="$ADDITIONAL_DRIVERS rpi-cirrus-config"
+    ADDITIONAL_DRIVERS="$ADDITIONAL_DRIVERS gamecon_gpio_rpi rpi-cirrus-config"
 
   # override some playlist core assignation
     RA_PLAYLIST_CORES="${RA_PLAYLIST_CORES//nestopia/fceumm}"
@@ -142,4 +142,8 @@
   # disable some cores
     LIBRETRO_CORES="${LIBRETRO_CORES//ppsspp/}"
     LIBRETRO_CORES="${LIBRETRO_CORES//uae4arm/}"
-    LIBRETRO_CORES="${LIBRETRO_CORES//reicast/}"
+    LIBRETRO_CORES="${LIBRETRO_CORES//flycast/}"
+    LIBRETRO_CORES="${LIBRETRO_CORES//mupen64plus_next/}"
+    LIBRETRO_CORES="${LIBRETRO_CORES//yabasanshiro/}"
+    LIBRETRO_CORES="${LIBRETRO_CORES//play/}"
+

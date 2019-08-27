@@ -19,7 +19,7 @@
 ################################################################################
 
 PKG_NAME="genesis-plus-gx"
-PKG_VERSION="5993fd8"
+PKG_VERSION="53e043d"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="Non-commercial"
@@ -35,10 +35,15 @@ PKG_IS_ADDON="no"
 PKG_AUTORECONF="no"
 
 make_target() {
-  if [ "$ARCH" == "arm" ]; then
-    CFLAGS="$CFLAGS -DALIGN_LONG"
+  if [ "$ARCH" == "aarch64" ]; then
+    make -f Makefile.libretro NO_OPTIMIZE=1
+  else
+    if [ "$ARCH" == "arm" ]; then
+      CFLAGS="$CFLAGS -DALIGN_LONG"
+    fi
+
+    make -f Makefile.libretro
   fi
-  make -f Makefile.libretro
 }
 
 makeinstall_target() {

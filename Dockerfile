@@ -14,9 +14,9 @@ FROM ubuntu:xenial
 RUN apt-get update \
 	&& apt-get upgrade -y \
 	&& apt-get install -y \
-		build-essential \
 		bash \
 		bc \
+		bsdmainutils \
 		build-essential \
 		bzip2 \
 		diffutils \
@@ -36,10 +36,9 @@ RUN apt-get update \
 		sed \
 		tar \
 		texinfo \
+		u-boot-tools \		
 		unzip \
 		wget \
-		xfonts-utils \
-		xfonts-utils \
 		xfonts-utils \
 		xsltproc \
 		xz-utils \
